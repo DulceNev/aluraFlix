@@ -4,6 +4,8 @@ import { AiFillHome } from 'react-icons/ai';
 
 import './App.css'
 import Header from './components/Header/Header'
+import Banner from './components/Banner/Banner';
+import Categorias from './components/Categorias/Categorias';
 
 function App() {
 
@@ -11,6 +13,8 @@ function App() {
   return (
     <>
       <Header />
+      <Banner />
+      <Categorias />
     </>
   )
 }
