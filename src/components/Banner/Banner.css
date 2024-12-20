@@ -5,12 +5,10 @@
      background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    
-    /* filter: brightness(0.5); */
 }
 
 .banner-container section{
-
+    position: relative;
     display: flex;
     max-width: 80rem;
     margin: 0 auto;
@@ -45,4 +43,9 @@
 .section-content-description{
     font-size: 24px;
     font-weight: 400;
+}
+
+.banner-section-video{
+    border: #6bd0ff 3px solid;
+    border-radius: 15px;
 }

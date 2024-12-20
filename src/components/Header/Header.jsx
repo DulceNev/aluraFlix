@@ -7,8 +7,8 @@ const Header = () => {
         <img className='logo' src="../src/assets/Logo.png" alt="AluraFlix" />
 
         <div className='button-section-pc'>
-            <button className='button'>Home</button>
-            <button className='button'>Nuevo video</button>
+            <button className='buttonHeader'>Home</button>
+            <button className='buttonHeader'>Nuevo video</button>
         </div>
 
         <div className='button-section-movil'>

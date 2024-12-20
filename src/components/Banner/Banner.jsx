@@ -16,8 +16,8 @@ const Banner = () => {
 
             <iframe
                 className='banner-section-video'
-                width="560"
-                height="315"
+                width="660"
+                height="370"
                 src="https://www.youtube.com/embed/a4na2opArGY?si=NlN768oOV291msyJ"
                 title="YouTube video player"
                 frameBorder="0"
