@@ -21,6 +21,8 @@
     color: white;
     width: 50%;
     font-size: large;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .team-name{
@@ -49,4 +51,68 @@
 .banner-section-video{
     border: #6bd0ff 3px solid;
     border-radius: 15px;
+}
+
+
+@media (max-width: 1500px){
+
+    .section-content-description{
+        text-align: left;
+        font-size: small;
+    }
+
+    .banner-section-video {
+         width: 60%;
+        }
+
+    .banner-container section{
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        flex-direction: column-reverse;
+        padding-top: 20px;
+    }
+    
+        .section-title{
+            font-size: 40px;
+        }
+
+        .team-name{
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+            
+        }
+}
+
+@media (max-width: 850px){
+    .banner-container section{
+        gap: 10px;
+    }
+
+    .section-title{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .team-name{
+        width: 100px;
+        height: 40px;
+        font-size: 15px;
+    }
+
+    .section-content-description{
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+    .banner-content{
+        width: 80%;
+    }
+
+    .banner-section-video {
+        width: 90%;
+        height: 40%;
+    }
 }
