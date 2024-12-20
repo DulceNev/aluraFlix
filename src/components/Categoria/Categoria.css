@@ -6,8 +6,8 @@
     margin-top: 1rem;
     max-width: 80%;
     margin: 0 auto;
-    margin-top: 70px;
-    
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .video-section{
@@ -16,4 +16,5 @@
     justify-content: left;
     gap: 2rem;
 }
+
 
