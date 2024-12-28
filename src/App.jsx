@@ -17,7 +17,6 @@ function App() {
       <Header />
       <Banner />
       <Categoria />
-      <Categoria />
       <Footer />
     </>
   )

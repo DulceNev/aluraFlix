@@ -18,7 +18,7 @@ const Banner = () => {
                 className='banner-section-video'
                 width="50%"
                 height="370"
-                src="https://www.youtube.com/embed/a4na2opArGY?si=NlN768oOV291msyJ"
+                src="https://www.youtube.com/embed/19zGq_--hNs?si=jpb9UMqlGe6RX52H"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

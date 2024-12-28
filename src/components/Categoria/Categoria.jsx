@@ -1,7 +1,13 @@
+import useFetch from '../../api/useFetch';
+
 import './Categoria.css';
-import VideoCard from './VideoCard/VideoCard';
+import ImageCard from './ImageCard/ImageCard';
+
 
 const Categoria = () => {
+    const { data, getData } = useFetch();
+
+
     return (
         <section className='section-container'>
 
@@ -10,11 +16,14 @@ const Categoria = () => {
             </button>
 
             <section className='video-section'>
-
-                <VideoCard />
-                <VideoCard />
-                <VideoCard />
-
+                {data?.map((image) => (
+                    <ImageCard
+                        key={image.id}
+                        video={image}
+                        image={image}
+                        getData={getData}
+                    />
+                ))}
             </section>
         </section>
     );
