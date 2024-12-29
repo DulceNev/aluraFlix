@@ -20,8 +20,10 @@ const Categoria = () => {
                 {data?.map((image) => (
                     <ImageCard
                         key={image.id}
+                        id={image.id}
                         video={image}
                         image={image}
+
                         getData={getData}
                     />
                 ))}

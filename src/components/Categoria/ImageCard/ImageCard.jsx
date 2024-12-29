@@ -13,15 +13,23 @@ const ImageCard = (props) => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
     // const { updateData } = usePut();
-    const { updateData } = useApi();
+    const { updateData, DeleteData } = useApi();
 
     function openModal() {
         setIsOpen(true);
+        console.log(props.image);
+        setTimeout(() => {
+            document.getElementById('title').value = props.image.title;
+            document.getElementById('team').value = props.image.team;
+            document.getElementById('image').value = props.image.url;
+        }, 100);
+
     }
 
     function closeModal() {
         setIsOpen(false);
     }
+
 
     Modal.setAppElement('#root');
 
@@ -47,9 +55,12 @@ const ImageCard = (props) => {
         closeModal();
     }
 
-
+    const deleteImageCard = async () => {
+        await DeleteData(props.id);
+        await props.getData();
+    }
     return (<article className='image-card'>
-        <TiDelete className='delete' />
+        <TiDelete className='delete' onClick={deleteImageCard} />
         <MdEditSquare onClick={openModal} className='edit' />
 
         <Modal
@@ -75,6 +86,7 @@ const ImageCard = (props) => {
                             className="form-input"
                             required
                             maxLength="100"
+
                         />
                     </div>
 
@@ -93,6 +105,7 @@ const ImageCard = (props) => {
                         <label className="form-label">URL de la Imagen:</label>
                         <input
                             type="url"
+
                             id="image"
                             name="image"
                             placeholder="https://example.com/imagen.jpg"

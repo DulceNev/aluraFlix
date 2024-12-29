@@ -60,12 +60,26 @@ const useApi = () => {
         });
 
         const responseData = await response.json();
-        console.log(responseData);
+        return responseData;
 
     }
 
+    // **DELETE request**: Eliminar datos
+
+    const DeleteData = async (id) => {
+        const response = await fetch(`${apiUrl}/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        const responseData = await response.json();
+        return responseData;
+    }
+
     // Retornar las funciones y estados necesarios
-    return { data, getData, updateData, updateResponse, addData };
+    return { data, getData, updateData, updateResponse, addData, DeleteData };
 };
 
 export default useApi;
