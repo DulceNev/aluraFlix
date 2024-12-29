@@ -30,6 +30,9 @@
     width: 200px;
     color: white;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 @media (max-width: 850px){

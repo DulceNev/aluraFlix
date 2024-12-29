@@ -6,12 +6,14 @@ import { FaWindowClose } from "react-icons/fa";
 import Modal from 'react-modal';
 import { useState } from 'react';
 
-import usePut from '../../../api/usePut';
+// import usePut from '../../../api/usePut';
+import useApi from '../../../services/Api';
 
 const ImageCard = (props) => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
-    const { updateData } = usePut();
+    // const { updateData } = usePut();
+    const { updateData } = useApi();
 
     function openModal() {
         setIsOpen(true);

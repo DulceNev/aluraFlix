@@ -1,11 +1,12 @@
-import useFetch from '../../api/useFetch';
+// import useFetch from '../../api/useFetch';
+import useApi from '../../services/Api';
 
 import './Categoria.css';
 import ImageCard from './ImageCard/ImageCard';
 
 
 const Categoria = () => {
-    const { data, getData } = useFetch();
+    const { data, getData } = useApi();
 
 
     return (

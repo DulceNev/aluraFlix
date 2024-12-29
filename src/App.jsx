@@ -1,12 +1,14 @@
-// import { useState } from 'react'
-import { FaBeer } from 'react-icons/fa';
-import { AiFillHome } from 'react-icons/ai';
+
 
 import './App.css'
+
+
 import Header from './components/Header/Header'
-import Banner from './components/Banner/Banner';
-import Categoria from './components/Categoria/Categoria';
+
 import Footer from './components/Footer/Footer';
+import NuevoVideo from './components/NuevoVideo/NuevoVideo';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HomePage from './Pages/home';
 
 
 function App() {
@@ -14,10 +16,18 @@ function App() {
 
   return (
     <>
-      <Header />
-      <Banner />
-      <Categoria />
-      <Footer />
+      <BrowserRouter >
+        <div className="grid grid-rows-[125px_10fr_1fr] h-screen">
+          <Header />
+
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/nuevo-video" element={<NuevoVideo />} />
+          </Routes>
+
+          <Footer />
+        </div>
+      </BrowserRouter>
     </>
   )
 }
