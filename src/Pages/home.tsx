@@ -1,12 +1,12 @@
 import React from "react";
 import Banner from "../components/Banner/Banner";
-import Categoria from "../components/Categoria/Categoria";
+import Teams from "../components/Teams/Teams";
 
 function HomePage() {
     return (
         <>
             <Banner />
-            <Categoria />
+            <Teams />
         </>
     );
 }

@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import useTeams from '../../services/teams.api';
-import './NuevaCard.css'
+import useTeams from '../hooks/teams.api';
+import './../css/NewMember.css';
 
 import { useNavigate } from "react-router";
-import useMembers from '../../services/members.api';
+import useMembers from '../hooks/members.api';
 
 
-const NuevoVideo = () => {
+const NewMemberPage = () => {
 
 
     const { teams, getTeams } = useTeams();
@@ -86,4 +86,4 @@ const NuevoVideo = () => {
     </section>
 }
 
-export default NuevoVideo
+export default NewMemberPage

@@ -1,31 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
-const useMembers = () => {
+const useTeams = () => {
 
-    const [members, setMembers] = useState([]); // Estado para GET
+    const [teams, setTeams] = useState([]); // Estado para GET
     // const [updateResponse, setUpdateResponse] = useState(null); // Estado para PUT
-    const apiUrl = 'https://6769dc5c863eaa5ac0dcd927.mockapi.io/api/1/member';
+    const apiUrl = 'https://6769dc5c863eaa5ac0dcd927.mockapi.io/api/1/team';
 
     // **GET request**: Obtener datos
-    const getMembers = async () => {
+    const getTeams = async () => {
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const fetchedData = await response.json();
-            setMembers(fetchedData);
+            setTeams(fetchedData);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
     // useEffect(() => {
-    //     getMembers(); // Ejecutar GET al montar el componente
+    //     getTeams(); // Ejecutar GET al montar el componente
     // }, []);
 
     // **PUT request**: Actualizar datos
-    const updateMembers = async (id, updatedData) => {
+    const updateTeam = async (id, updatedData) => {
         try {
             const response = await fetch(`${apiUrl}/${id}`, {
                 method: 'PUT',
@@ -46,7 +46,7 @@ const useMembers = () => {
 
     // **POST request**: Agregar datos
 
-    const addMember = async (title, team, url) => {
+    const addTeam = async (title, team, url) => {
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
@@ -66,7 +66,7 @@ const useMembers = () => {
 
     // **DELETE request**: Eliminar datos
 
-    const deleteMember = async (id) => {
+    const deleteTeam = async (id) => {
         const response = await fetch(`${apiUrl}/${id}`, {
             method: 'DELETE',
             headers: {
@@ -79,7 +79,7 @@ const useMembers = () => {
     }
 
     // Retornar las funciones y estados necesarios
-    return { members, getMembers, updateMembers, addMember, deleteMember };
+    return { teams, updateTeam, addTeam, deleteTeam, getTeams };
 };
 
-export default useMembers;
+export default useTeams;

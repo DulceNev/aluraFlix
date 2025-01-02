@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
-import './Categoria.css';
-import ImageCard from './ImageCard/ImageCard';
-import useTeams from '../../services/teams.api';
-import useMembers from '../../services/members.api';
+import './Teams.css';
+import MemberCard from '../Members/MemberCard/MemberCard';
+import useTeams from '../../hooks/teams.api';
+import useMembers from '../../hooks/members.api';
 
 
 const Categoria = () => {
@@ -13,7 +13,7 @@ const Categoria = () => {
         getTeams();
         getMembers();
     }, []);
-    console.log({ teams, members })
+
     const getTeamDataById = (id) => {
         const team = teams.find((team) => team.id == id);
         return team
@@ -23,7 +23,7 @@ const Categoria = () => {
         return membersByTeam
     }
     return (
-        <section className='p-5'>
+        <section className='container mx-auto p-5'>
 
             {
                 teams?.map((team) => (
@@ -35,7 +35,7 @@ const Categoria = () => {
                             <div className='flex flex-wrap flex-row gap-5'>
                                 {
                                     getMembersByTeam(team.id).map((member) => (
-                                        <ImageCard
+                                        <MemberCard
                                             key={member.id}
                                             id={member.id}
                                             image={member}

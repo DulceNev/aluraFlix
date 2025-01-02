@@ -1,14 +1,11 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 
 import './App.css'
-
-
 import Header from './components/Header/Header'
-
 import Footer from './components/Footer/Footer';
-import NuevoVideo from './components/NuevaCard/NuevaCard';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomePage from './Pages/home';
+import NewMemberPage from './Pages/NewMember';
 
 
 function App() {
@@ -22,7 +19,7 @@ function App() {
 
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/nuevo-video" element={<NuevoVideo />} />
+            <Route path="/nuevo-video" element={<NewMemberPage />} />
           </Routes>
 
           <Footer />
