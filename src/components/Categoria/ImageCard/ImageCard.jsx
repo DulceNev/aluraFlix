@@ -3,25 +3,33 @@ import { TiDelete } from "react-icons/ti";
 import { MdEditSquare } from "react-icons/md";
 import { FaWindowClose } from "react-icons/fa";
 
+import { useEffect } from 'react';
+
+
 import Modal from 'react-modal';
 import { useState } from 'react';
 
-import useApi from '../../../services/Api';
+
 
 import PropTypes from 'prop-types';
+import useTeams from '../../../services/teams.api';
+import useMembers from '../../../services/members.api';
 
 const ImageCard = (props) => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
-    const { updateData, DeleteData } = useApi();
-
+    const { teams, getTeams } = useTeams();
+    const { updateMembers, deleteMember } = useMembers();
+    useEffect(() => {
+        getTeams();
+    }, []);
     function openModal() {
         setIsOpen(true);
         console.log(props.image);
         setTimeout(() => {
             document.getElementById('title').value = props.image.title;
             document.getElementById('team').value = props.image.team;
-            document.getElementById('image').value = props.image.url;
+            document.getElementById('image').value = props.imageUrl;
         }, 100);
 
     }
@@ -50,29 +58,27 @@ const ImageCard = (props) => {
             url: url,
         };
 
-        await updateData(props.image.id, data);
+        await updateMembers(props.id, data);
         props.getData();
         closeModal();
     }
 
     const deleteImageCard = async () => {
-        await DeleteData(props.id);
+        await deleteMember(props.id);
         await props.getData();
     }
 
-    // desestructuracion de props
-    const { url, title, team, color } = props.image;
 
     const colorPrimario = {
-        backgroundColor: color
+        backgroundColor: props.colorPrimario
     }
-
+    // console.log(props)
     return (
         <section className='image-card-container'>
 
-            <button className='team-name' style={colorPrimario}>
+            {/* <button className='team-name' style={colorPrimario}>
                 {team}
-            </button>
+            </button> */}
 
             <article className='image-card'>
                 <TiDelete className='delete' onClick={deleteImageCard} />
@@ -109,9 +115,11 @@ const ImageCard = (props) => {
                             <div className="form-group">
                                 <label htmlFor="team" className="form-label">Selecciona un equipo:</label>
                                 <select id="team" name="team" className="form-select" required>
-                                    <option value="frontend">Frontend</option>
-                                    <option value="backend">Backend</option>
-                                    <option value="design">Diseño</option>
+                                    {
+                                        teams.map((team) => (
+                                            <option key={team.id} value={team.id}>{team.name}</option>
+                                        ))
+                                    }
                                 </select>
                             </div>
 
@@ -140,9 +148,9 @@ const ImageCard = (props) => {
 
                 </Modal>
 
-                <img className='image' src={url} alt={title} />
+                <img className='image' src={props.url} alt={props.title} />
                 <div className='color-section my-5' style={colorPrimario}></div>
-                <p className='title-video'>{title}</p>
+                <p className='title-video'>{props.title}</p>
 
             </article>
         </section>
@@ -152,7 +160,12 @@ const ImageCard = (props) => {
 ImageCard.propTypes = {
     image: PropTypes.object,
     id: PropTypes.string,
-    getData: PropTypes.func
+    getData: PropTypes.func,
+    url: PropTypes.string,
+    imageUrl: PropTypes.string,
+    title: PropTypes.string,
+    colorPrimario: PropTypes.string,
+
 };
 
 

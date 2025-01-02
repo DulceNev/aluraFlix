@@ -1,15 +1,23 @@
-import useApi from '../../services/Api'
+import { useEffect } from 'react';
+import useTeams from '../../services/teams.api';
 import './NuevaCard.css'
 
 import { useNavigate } from "react-router";
+import useMembers from '../../services/members.api';
 
 
 const NuevoVideo = () => {
 
-    const { addData } = useApi();
+
+    const { teams, getTeams } = useTeams();
+    const { addMember: addMemberApi } = useMembers();
+    useEffect(() => {
+        getTeams();
+    }, []);
+
     const navigate = useNavigate();
 
-    const addNewCard = async (e) => {
+    const addMember = async (e) => {
         e.preventDefault();
 
         const title = document.getElementById('title').value;
@@ -17,7 +25,7 @@ const NuevoVideo = () => {
         const url = document.getElementById('image').value;
 
         // console.log({ title, team, url });
-        await addData(title, team, url);
+        await addMemberApi(title, team, url);
         alert("Card agregada exitosamente 🎉");
 
         navigate("/");
@@ -27,7 +35,7 @@ const NuevoVideo = () => {
         <h2>NUEVA CARD</h2>
         <p>COMPLETE EL FORMULARIO PARA CREAR UNA NUEVA TARJETA</p>
         <div className='space'></div>
-        <form onSubmit={addNewCard}>
+        <form onSubmit={addMember}>
             <div>
                 <div className="form-group">
                     <label htmlFor="title" className="form-label">Título:</label>
@@ -58,9 +66,12 @@ const NuevoVideo = () => {
                 <div className="form-group">
                     <label htmlFor="team" className="form-label">Selecciona un equipo:</label>
                     <select id="team" name="team" className="form-select" required>
-                        <option value="frontend">Frontend</option>
-                        <option value="backend">Backend</option>
-                        <option value="design">Diseño</option>
+                        {
+                            teams.map((team) => (
+                                <option key={team.id} value={team.id}>{team.name}</option>
+                            ))
+                        }
+
                     </select>
                 </div>
             </div>

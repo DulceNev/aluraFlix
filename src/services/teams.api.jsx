@@ -1,31 +1,31 @@
 import { useEffect, useState } from 'react';
 
-const useApi = () => {
+const useTeams = () => {
 
-    const [data, setData] = useState([]); // Estado para GET
-    const [updateResponse, setUpdateResponse] = useState(null); // Estado para PUT
-    const apiUrl = 'https://6769dc5c863eaa5ac0dcd927.mockapi.io/api/1/ImageCard';
+    const [teams, setTeams] = useState([]); // Estado para GET
+    // const [updateResponse, setUpdateResponse] = useState(null); // Estado para PUT
+    const apiUrl = 'https://6769dc5c863eaa5ac0dcd927.mockapi.io/api/1/team';
 
     // **GET request**: Obtener datos
-    const getData = async () => {
+    const getTeams = async () => {
         try {
             const response = await fetch(apiUrl);
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             const fetchedData = await response.json();
-            setData(fetchedData);
+            setTeams(fetchedData);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
 
     // useEffect(() => {
-    //     getData(); // Ejecutar GET al montar el componente
+    //     getTeams(); // Ejecutar GET al montar el componente
     // }, []);
 
     // **PUT request**: Actualizar datos
-    const updateData = async (id, updatedData) => {
+    const updateTeam = async (id, updatedData) => {
         try {
             const response = await fetch(`${apiUrl}/${id}`, {
                 method: 'PUT',
@@ -37,8 +37,8 @@ const useApi = () => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
-            const responseData = await response.json();
-            setUpdateResponse(responseData); // Guardar la respuesta del PUT
+            // const responseData = await response.json();
+            // setUpdateResponse(responseData); // Guardar la respuesta del PUT
         } catch (error) {
             console.error('Error updating data:', error);
         }
@@ -46,7 +46,7 @@ const useApi = () => {
 
     // **POST request**: Agregar datos
 
-    const addData = async (title, team, url) => {
+    const addTeam = async (title, team, url) => {
         const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
@@ -66,7 +66,7 @@ const useApi = () => {
 
     // **DELETE request**: Eliminar datos
 
-    const DeleteData = async (id) => {
+    const deleteTeam = async (id) => {
         const response = await fetch(`${apiUrl}/${id}`, {
             method: 'DELETE',
             headers: {
@@ -79,7 +79,7 @@ const useApi = () => {
     }
 
     // Retornar las funciones y estados necesarios
-    return { data, getData, updateData, updateResponse, addData, DeleteData };
+    return { teams, updateTeam, addTeam, deleteTeam, getTeams };
 };
 
-export default useApi;
+export default useTeams;
