@@ -15,6 +15,13 @@
     position: relative;
 }
 
+.image-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: left;
+}
+
 .image{
     height: 200px;
     width: 100%;
@@ -22,7 +29,6 @@
 }
 
 .color-section{
-    background-color: #6bd0ff;
     border-radius: 5px;
     height: 8px;
     width: 80%;
@@ -74,6 +80,19 @@
     font-size: x-large;
     border: none;
 }
+
+.team-name {
+    background-color: #6bd0ff;
+    color: white;
+    border-radius: 15px;
+    font-size: 25px;
+    font-weight: bold;
+    width: 200px;
+    height: 60px;
+    border: none;
+    margin-top: 40px;
+}
+
 
 /* Estilos Generales del Formulario */
 
@@ -189,6 +208,12 @@
     .form-button {
         font-size: 0.9rem;
     }
+
+        .team-name {
+            width: 100px;
+            height: 40px;
+            font-size: 15px;
+        }
 }
 
 @media (max-width: 600px) {
@@ -205,4 +230,11 @@
     .title-video {
         font-size: 20px;
     }
+
+        .team-name {
+            width: 150px;
+            height: 50px;
+            font-size: 20px;
+    
+        }
 }  

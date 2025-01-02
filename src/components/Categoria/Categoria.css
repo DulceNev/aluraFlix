@@ -8,17 +8,11 @@
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
-}
-
-.video-section{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    gap: 2rem;
+    width: 80%;
 }
 
 @media (max-width: 1500px) {
-    .video-section{
+    .image-card-section{
         justify-content: center;
     }
 }

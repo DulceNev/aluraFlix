@@ -6,13 +6,13 @@ import { FaWindowClose } from "react-icons/fa";
 import Modal from 'react-modal';
 import { useState } from 'react';
 
-// import usePut from '../../../api/usePut';
 import useApi from '../../../services/Api';
+
+import PropTypes from 'prop-types';
 
 const ImageCard = (props) => {
 
     const [modalIsOpen, setIsOpen] = useState(false);
-    // const { updateData } = usePut();
     const { updateData, DeleteData } = useApi();
 
     function openModal() {
@@ -59,81 +59,101 @@ const ImageCard = (props) => {
         await DeleteData(props.id);
         await props.getData();
     }
-    return (<article className='image-card'>
-        <TiDelete className='delete' onClick={deleteImageCard} />
-        <MdEditSquare onClick={openModal} className='edit' />
 
-        <Modal
-            className="Modal form-container"
-            overlayClassName="Overlay"
-            isOpen={modalIsOpen}
-            onRequestClose={closeModal}
-            contentLabel="Example Modal"
-        >
-            <FaWindowClose className='icon-close-modal delete' onClick={closeModal} />
-            <form onSubmit={handleUpdate} method="POST" >
-                <fieldset className="form-fieldset">
-                    <legend className="form-legend">Editar Card</legend>
+    // desestructuracion de props
+    const { url, title, team, color } = props.image;
 
-                    {/* Título */}
-                    <div className="form-group">
-                        <label htmlFor="title" className="form-label">Título:</label>
-                        <input
-                            type="text"
-                            id="title"
-                            name="title"
-                            placeholder="Escribe el título"
-                            className="form-input"
-                            required
-                            maxLength="100"
+    const colorPrimario = {
+        backgroundColor: color
+    }
 
-                        />
-                    </div>
+    return (
+        <section className='image-card-container'>
 
-                    {/* Selección de Equipos */}
-                    <div className="form-group">
-                        <label htmlFor="team" className="form-label">Selecciona un equipo:</label>
-                        <select id="team" name="team" className="form-select" required>
-                            <option value="frontend">Frontend</option>
-                            <option value="backend">Backend</option>
-                            <option value="design">Diseño</option>
-                        </select>
-                    </div>
+            <button className='team-name' style={colorPrimario}>
+                {team}
+            </button>
 
-                    {/* Enlace de imagen */}
-                    <div className="form-group">
-                        <label className="form-label">URL de la Imagen:</label>
-                        <input
-                            type="url"
+            <article className='image-card'>
+                <TiDelete className='delete' onClick={deleteImageCard} />
+                <MdEditSquare onClick={openModal} className='edit' />
 
-                            id="image"
-                            name="image"
-                            placeholder="https://example.com/imagen.jpg"
-                            pattern="https?://.+"
-                            className="form-input"
-                            required
-                        />
-                    </div>
+                <Modal
+                    className="Modal form-container"
+                    overlayClassName="Overlay"
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    contentLabel="Example Modal"
+                >
+                    <FaWindowClose className='icon-close-modal delete' onClick={closeModal} />
+                    <form onSubmit={handleUpdate} method="POST" >
+                        <fieldset className="form-fieldset">
+                            <legend className="form-legend">Editar Card</legend>
 
-                    {/* Botón de Envío */}
-                    <div className="form-group">
-                        <button type="submit" className="form-button">Guardar</button>
-                    </div>
-                </fieldset>
-            </form>
+                            {/* Título */}
+                            <div className="form-group">
+                                <label htmlFor="title" className="form-label">Título:</label>
+                                <input
+                                    type="text"
+                                    id="title"
+                                    name="title"
+                                    placeholder="Escribe el título"
+                                    className="form-input"
+                                    required
+                                    maxLength="100"
+
+                                />
+                            </div>
+
+                            {/* Selección de Equipos */}
+                            <div className="form-group">
+                                <label htmlFor="team" className="form-label">Selecciona un equipo:</label>
+                                <select id="team" name="team" className="form-select" required>
+                                    <option value="frontend">Frontend</option>
+                                    <option value="backend">Backend</option>
+                                    <option value="design">Diseño</option>
+                                </select>
+                            </div>
+
+                            {/* Enlace de imagen */}
+                            <div className="form-group">
+                                <label className="form-label">URL de la Imagen:</label>
+                                <input
+                                    type="url"
+
+                                    id="image"
+                                    name="image"
+                                    placeholder="https://example.com/imagen.jpg"
+                                    pattern="https?://.+"
+                                    className="form-input"
+                                    required
+                                />
+                            </div>
+
+                            {/* Botón de Envío */}
+                            <div className="form-group">
+                                <button type="submit" className="form-button">Guardar</button>
+                            </div>
+                        </fieldset>
+                    </form>
 
 
-        </Modal>
+                </Modal>
 
-        <img className='image' src={props.image.url} alt={props.image.title} />
-        <div className='color-section my-4'></div>
-        <p className='title-video'>{props.image.title}</p>
+                <img className='image' src={url} alt={title} />
+                <div className='color-section my-5' style={colorPrimario}></div>
+                <p className='title-video'>{title}</p>
 
-    </article>
-
-
+            </article>
+        </section>
     )
 }
+
+ImageCard.propTypes = {
+    image: PropTypes.object,
+    id: PropTypes.string,
+    getData: PropTypes.func
+};
 
 
 export default ImageCard;

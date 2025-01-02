@@ -25,18 +25,6 @@
     margin-right: 20px;
 }
 
-.team-name{
-    background-color: #6bd0ff;
-    color: white;
-    border-radius: 15px;
-    font-size: 25px;
-    font-weight: bold;
-    width: 200px;
-    height: 60px;
-    border: none;
-    margin-bottom: 30px;
-}
-
 .section-title{
     font-size: 50px;
     font-weight: 500;
@@ -77,12 +65,6 @@
             font-size: 40px;
         }
 
-        .team-name{
-            width: 150px;
-            height: 50px;
-            font-size: 20px;
-            
-        }
 }
 
 @media (max-width: 850px){
@@ -95,11 +77,6 @@
         text-align: center;
     }
 
-    .team-name{
-        width: 100px;
-        height: 40px;
-        font-size: 15px;
-    }
 
     .section-content-description{
         font-size: 20px;

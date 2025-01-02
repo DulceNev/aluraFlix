@@ -1,4 +1,3 @@
-// import useFetch from '../../api/useFetch';
 import useApi from '../../services/Api';
 
 import './Categoria.css';
@@ -12,18 +11,12 @@ const Categoria = () => {
     return (
         <section className='section-container'>
 
-            <button className='team-name'>
-                FRONT END
-            </button>
-
-            <section className='video-section'>
+            <section className='image-card-section'>
                 {data?.map((image) => (
                     <ImageCard
                         key={image.id}
                         id={image.id}
-                        video={image}
                         image={image}
-
                         getData={getData}
                     />
                 ))}
