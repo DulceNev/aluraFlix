@@ -55,7 +55,7 @@ const useMembers = () => {
             body: JSON.stringify({
                 title: title,
                 team: team,
-                url: url,
+                image_url: url,
             }),
         });
 

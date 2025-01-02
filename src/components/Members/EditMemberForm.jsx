@@ -25,7 +25,7 @@ const EditMemberForm = (props) => {
         const data = {
             title: title,
             team: team,
-            url: url,
+            image_url: url,
         };
 
         await updateMembers(props.id, data);
