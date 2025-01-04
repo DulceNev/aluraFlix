@@ -27,12 +27,12 @@ const Categoria = () => {
 
             {
                 teams?.map((team) => (
-                    <section className='image-card-section' key={team.id}>
+                    <section className='image-card-section mt-10' key={team.id}>
                         {getMembersByTeam(team.id).length > 0 && <>
                             <button className='team-name' style={{ backgroundColor: team.color }}>
                                 {team.name}
                             </button>
-                            <div className='flex flex-wrap flex-row gap-5'>
+                            <div className='flex flex-wrap flex-row gap-5 sm:justify-center md:justify-center lg:justify-start'>
                                 {
                                     getMembersByTeam(team.id).map((member) => (
                                         <MemberCard

@@ -14,8 +14,10 @@ const Header = () => {
         </div>
 
         <div className='button-section-movil'>
-            <FaHome color="white" size="2em" />
-            <RiAddCircleLine color="white" size="2em" />
+            <Link to="/"><FaHome color="white" size="2em" /></Link>
+
+            <Link to="/nuevo-video"><RiAddCircleLine color="white" size="2em" /></Link>
+
         </div>
 
 

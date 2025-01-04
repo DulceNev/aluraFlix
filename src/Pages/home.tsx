@@ -4,10 +4,10 @@ import Teams from "../components/Teams/Teams";
 
 function HomePage() {
     return (
-        <>
+        <div>
             <Banner />
             <Teams />
-        </>
+        </div>
     );
 }
 

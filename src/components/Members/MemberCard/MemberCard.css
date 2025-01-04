@@ -1,7 +1,7 @@
 
 .image-card {
     display: flex;
-    width: 400px;
+    width: 350px;
     height: 340px;
     flex-direction: column;
     justify-content: space-between;
@@ -82,15 +82,17 @@
 }
 
 .team-name {
-    background-color: #6bd0ff;
+    background-color: #ffa4b6;
     color: white;
     border-radius: 15px;
     font-size: 25px;
     font-weight: bold;
-    width: 200px;
-    height: 60px;
+    min-width: 200px;
+    min-height: 60px;
     border: none;
+    margin-bottom: 40px;
     margin-top: 40px;
+    
 }
 
 
@@ -212,7 +214,7 @@
         .team-name {
             width: 100px;
             height: 40px;
-            font-size: 15px;
+            font-size: 30px;
         }
 }
 
@@ -234,7 +236,7 @@
         .team-name {
             width: 150px;
             height: 50px;
-            font-size: 20px;
+            font-size: 30px;
     
         }
 }  

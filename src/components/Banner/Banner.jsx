@@ -5,7 +5,7 @@ const Banner = () => {
         <section>
             <article className='banner-content'>
                 <button className='team-name'>
-                    FRONT END
+                    Frontend
                 </button>
 
                 <div className=''>

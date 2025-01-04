@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <BrowserRouter >
-        <div className="grid grid-rows-[125px_10fr_1fr] h-screen">
+        <div className="grid grid-rows-[125px_1fr_100px] h-screen">
           <Header />
 
           <Routes>

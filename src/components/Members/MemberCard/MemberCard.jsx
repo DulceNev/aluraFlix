@@ -56,10 +56,6 @@ const ImageCard = (props) => {
     return (
         <section className='image-card-container'>
 
-            {/* <button className='team-name' style={colorPrimario}>
-                {team}
-            </button> */}
-
             <article className='image-card'>
                 <TiDelete className='delete' onClick={deleteImageCard} />
                 <MdEditSquare onClick={openModal} className='edit' />
