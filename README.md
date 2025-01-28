@@ -1,6 +1,6 @@
 # 🎥 Aluraflix
 
-**Aluraflix** es una aplicación web interactiva que permite a los usuarios agregar, editar y eliminar tarjetas (cards) categorizadas de manera sencilla y eficiente. Este proyecto fue desarrollado como parte de mi aprendizaje en desarrollo frontend, integrando tecnologías modernas para una experiencia dinámica y estilizada.
+**Aluraflix** es una aplicación web interactiva que permite a los usuarios agregar, editar y eliminar videos (en formato de cards) categorizadas de manera sencilla y eficiente. Este proyecto fue desarrollado como parte de mi aprendizaje con react
 
 <p style="text-align:center"><img src="./src/assets/aluraflix-miniatura.png" alt="Miniatura de aluraflix" /></p>
 
@@ -21,15 +21,15 @@ _Puedes ver la demostración del proyecto en el siguiente enlace_
 
 ## ✨ **Características principales**
 
--   **Gestión de tarjetas:**
+-   **Gestión de videos:**
 
-    -   Agregar nuevas tarjetas con información personalizada.
-    -   Editar los detalles de las tarjetas existentes.
-    -   Eliminar tarjetas cuando ya no sean necesarias.
+    -   Agregar nuevos videos con información personalizada.
+    -   Editar los detalles de las tarjetas de video existentes.
+    -   Eliminar tarjetas de videos cuando ya no sean necesarias.
 
 -   **Categorías dinámicas:**
 
-    -   Clasificación de tarjetas por categorías para mejor organización.
+    -   Clasificación de videos por categorías para mejor organización.
 
 -   **Interfaz intuitiva:**
     -   Diseño moderno y atractivo, optimizado para usuarios de cualquier dispositivo.
